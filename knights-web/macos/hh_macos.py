@@ -143,9 +143,11 @@ def run(browser, com, provincia, isStarted):
             search.send_keys("parrucchieri vicino " + com + "," + provincia)
             search.submit()
             if (isStarted):
-                print(browser.execute_script("return document.documentElement.outerHTML"))
+                print("provo a cliccare 1")
+                #print(browser.execute_script("return document.documentElement.outerHTML"))
                 showAll = browser.find_elements(By.TAG_NAME, "g-more-link")[0]
                 showAll.click()
+                print("ho cliccato")
             done = True
         except:
             search.clear()
@@ -153,8 +155,11 @@ def run(browser, com, provincia, isStarted):
                 search.send_keys("parrucchieri vicino " + com + "," + provincia + " maps")
                 search.submit()
                 if (isStarted):
+                    print("provo a cliccare 2")
+
                     showAll = browser.find_elements(By.TAG_NAME, "g-more-link")[0]
                     showAll.click()
+                    print("ho cliccato l'altro")
                 done = True
             except:
                 print("errore, salto il comune di " + com)
@@ -286,19 +291,21 @@ if __name__ == '__main__':
                 while not done:
                     hunt = pd.DataFrame(columns=['Nome', 'Indirizzo', 'Comune', 'Telefono', 'note'])
                     try:
-                        if (False):
+                        if (tried==3):
                             done = True
                         else:
                             tried += 1
                             hunt = run(browser, str(line), nome_provincia, isStarted)
-                            hunt2 = run(browser, str(line), nome_provincia, isStarted)
-                            dataframe = pd.concat([dataframe, hunt,hunt2])
-                            dataframe= dataframe.drop_duplicates(subset=['Telefono'])
+                            #hunt2 = run(browser, str(line), nome_provincia, isStarted)
+                            #dataframe = pd.concat([dataframe, hunt,hunt2])
+                            dataframe=pd.concat([dataframe,hunt])
+                            dataframe= dataframe.drop_duplicates()
                             done = True;
+                            isStarted = False
                     except:
                         print("riprovo la caccia")
-                    finally:
-                        isStarted = False
+                    #finally:
+                    #    isStarted = False
 
             else:
                 pass;
