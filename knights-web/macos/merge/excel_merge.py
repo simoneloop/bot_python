@@ -80,5 +80,5 @@ if __name__ == '__main__':
     df_res['Indirizzo'] = df_res['Indirizzo'].fillna('N/A')
     print("lunghezza tot",len(df_res))
     writer = pd.ExcelWriter(path_dest, engine="xlsxwriter")
-    df_res.to_excel(writer, sheet_name='Merge')
+    df_res.to_excel(writer, sheet_name='PARRUCCHIERI')
     writer.save();

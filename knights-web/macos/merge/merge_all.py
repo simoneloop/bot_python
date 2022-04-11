@@ -20,7 +20,7 @@ def format_telephone(telefono):
     return telefono
 
 def merge(lista_nuovi,esistente=None):
-    path_dest=lista_nuovi[0].split('.')[0].split('-')[0]+'-merged.xlsx'
+    path_dest=lista_nuovi[0].split('.')[0].split('-')[0]+'.xlsx'
     dataframe=pd.DataFrame()
     for e in lista_nuovi:
         df_tmp=pd.read_excel(e)
@@ -83,13 +83,13 @@ def merge(lista_nuovi,esistente=None):
         df_res=df_res.drop(['index'], axis=1)
         print("lunghezza tot", len(df_res))
         writer = pd.ExcelWriter("res/"+path_dest, engine="xlsxwriter")
-        df_res.to_excel(writer, sheet_name='Merge')
+        df_res.to_excel(writer, sheet_name='PARRUCCHIERI')
         writer.save();
     else:
         dataframe=dataframe.drop_duplicates(subset=['Nome','Telefono'])
         dataframe=dataframe.fillna('N/A')
         writer = pd.ExcelWriter("res/"+path_dest, engine="xlsxwriter")
-        dataframe.to_excel(writer, sheet_name='Merge')
+        dataframe.to_excel(writer, sheet_name='PARRUCCHIERI')
         writer.save();
 
 def find_estetica(name):
