@@ -8,8 +8,8 @@ from io import BytesIO
 
 
 import os
-api_key = os.environ.get("API_KEY")
-api_key
+api_key = os.environ.get("OPENAI_KEY")
+
 openai.api_key=api_key
 API_TOKEN ='5854352780:AAHtJ7YGBHSASJ7OmyIfJKa4FWbv00qsJPM'
 
@@ -28,17 +28,19 @@ def voice_processing(message):
     file_info = bot.get_file(message.voice.file_id)
     downloaded_file = bot.download_file(file_info.file_path)
     
-    r = sr.Recognizer()
-    with open('./new_file.ogg', 'wb') as new_file:
-        new_file.write(downloaded_file)
-    sound = AudioSegment.from_ogg("./new_file.ogg")
-    sound.export("./output.wav", format="wav")
-
-    with sr.AudioFile("./output.wav") as source:
-        audio_data = r.record(source)
-        
-    print("Recognizing Now .... ")
+    
     try:
+            r = sr.Recognizer()
+            with open('./new_file.ogg', 'wb') as new_file:
+                new_file.write(downloaded_file)
+            sound = AudioSegment.from_ogg("./new_file.ogg")
+            name_from_user="./output-"+message.chat.username+".wav"
+            sound.export(name_from_user, format="wav")
+
+            with sr.AudioFile(name_from_user) as source:
+                audio_data = r.record(source)
+                
+            print("Recognizing Now .... ")
             promptt=r.recognize_google(audio_data,language="it-IT")
             print("You have said \n" + promptt)
             prompts="devi solo tradurre in inglese: "+promptt
@@ -54,6 +56,7 @@ def voice_processing(message):
 
 
     except Exception as e:
-        print("Error :  " + str(e))
+        print(e)
+        bot.send_message(message.chat.id, "stiamo ricevendo troppe richieste, risponderemo a breve, in caso contrario prova a reinviare il messaggio")
 
 bot.polling()
