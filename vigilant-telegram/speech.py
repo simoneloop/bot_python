@@ -8,10 +8,10 @@ from io import BytesIO
 
 
 import os
-api_key = os.environ.get("OPENAI_KEY")
+OPENAI_KEY = os.environ.get("OPENAI_KEY")
 
-openai.api_key=api_key
-API_TOKEN ='5854352780:AAHtJ7YGBHSASJ7OmyIfJKa4FWbv00qsJPM'
+openai.api_key=OPENAI_KEY
+API_TOKEN =os.environ.get("TOKEN_SEMSLATE")
 
 
 bot = telebot.TeleBot(API_TOKEN)
