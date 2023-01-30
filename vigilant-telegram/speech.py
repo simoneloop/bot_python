@@ -7,8 +7,10 @@ from gtts import gTTS
 from io import BytesIO
 
 
-
-openai.api_key="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"
+import os
+api_key = os.environ.get("API_KEY")
+api_key
+openai.api_key=api_key
 API_TOKEN ='5854352780:AAHtJ7YGBHSASJ7OmyIfJKa4FWbv00qsJPM'
 
 
