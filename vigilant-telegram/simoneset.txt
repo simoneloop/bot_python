@@ -1,1 +1,24 @@
 
+1: ee che dobbiamo fare
+2: niente, non facciamo niente
+---
+1: è un po' così la situazione
+2: e no
+---
+1: Dove volete andare?
+2: Ci si prende una birra?
+---
+1: Non era finito definitivamente??
+2: è finito il covid attenti a non avere un attacco cardiaco
+---
+1: E che sto JSON è cambiato più volte delle mutande delle escort
+2: Le escort non cambiano mutande
+---
+1: Io so solo che sto perdendo una marea di tempo
+2: Sì ma devi pensare alla struttura del codice zio. Dalla parte backend viene complesso per ogni modifica di ogni campo dover creare un controller. Simone Lopez:
+Dalla parte backend viene complesso per ogni modifica di ogni campo dover creare un controller
+Fai prima a crearne uno generale
+---
+1: Rubando un intelligenza artificiale
+2: Nah forniscono le api per un motivo
+---
