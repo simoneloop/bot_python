@@ -1,0 +1,33 @@
+1: re
+2: di sto cazzo
+---
+1: bravo
+2: grazie
+---
+1: aspetta
+2: cosa?
+---
+1: ora
+2: ma cosa
+---
+1: ok ci siamo
+2: sicuro?
+---
+1: proviamo
+2: ora dici
+---
+1: id
+2: mio
+---
+1: proviamo
+2: una semplice conta
+---
+1: vediamo ora
+2: ok
+---
+1: allora
+2: vai
+---
+1: ok forse ci siamo
+2: sembrerebbe di si
+---
