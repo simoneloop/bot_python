@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+>>>>>>> 8c17344aa1b5a7fbacb40f8ef3ee344410a06794
 
 1: ee che dobbiamo fare
 2: niente, non facciamo niente
@@ -21,4 +23,31 @@ Fai prima a crearne uno generale
 ---
 1: Rubando un intelligenza artificiale
 2: Nah forniscono le api per un motivo
+=======
+1: Ciao
+2: Com'è
+---
+1: ci siamo?
+2: per cosa?
+---
+1: volare
+2: volare dove zizi
+---
+1: Ehi
+2: Sì scusa
+---
+1: che facciamo?
+2: quello che facciamo tutti i giorni
+---
+1: ovvero?
+2: tentare di conquistare il mondo
+---
+1: ma non me la sono presa
+2: sei proprio una signorina
+---
+1: me la mandi una nostra foto quindi
+2: dammi un po' di tempo che sto facendo cose pomeriggio arriva
+---
+1: Hello
+2: Ciao
 ---
