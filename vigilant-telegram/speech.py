@@ -59,4 +59,13 @@ def voice_processing(message):
         print(e)
         bot.send_message(message.chat.id, "stiamo ricevendo troppe richieste, risponderemo a breve, in caso contrario prova a reinviare il messaggio")
 
-bot.polling()
+
+
+@bot.message_handler(func=lambda m: True)
+def echo_all(message):
+    completion=openai.Completion.create(engine="text-davinci-003",prompt=message.text,max_tokens=1000)
+    phrase=completion.choices[0]['text']
+    bot.reply_to(message, phrase)
+
+
+bot.infinity_polling()
