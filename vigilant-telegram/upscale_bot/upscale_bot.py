@@ -2,7 +2,7 @@ import telebot
 import cv2
 import shutil
 import os
-import inference_realesrgan
+from .Real import inference_realesrgan
 
 # from .ReaReal-ESRGAN import inference_realesrgan
 API_TOKEN = '5541852432:AAFPebccjkqifFbHzjTL2ZrqGntWNZ77AQw'

@@ -44,8 +44,8 @@ def voice_processing(message):
             promptt=r.recognize_google(audio_data,language="it-IT")
             print("You have said \n" + promptt)
             prompts="devi solo tradurre in inglese: "+promptt
-            completion=openai.Completion.create(engine="text-davinci-003",prompt=prompts,max_tokens=1000)
-            phrase=completion.choices[0]['text']
+            completion=openai.Completion.create(model="gpt-3.5-turbo",messages=[{"role": "user", "content": prompts}])
+            phrase=completion.choices[0]['message']['content']
             tts=gTTS(text=phrase, lang="en")
             fp = BytesIO()
             tts.write_to_fp(fp)
@@ -63,8 +63,8 @@ def voice_processing(message):
 
 @bot.message_handler(func=lambda m: True)
 def echo_all(message):
-    completion=openai.Completion.create(engine="text-davinci-003",prompt=message.text,max_tokens=1000)
-    phrase=completion.choices[0]['text']
+    completion=openai.Completion.create(model="gpt-3.5-turbo",messages=[{"role": "user", "content": message.text}])
+    phrase=completion.choices[0]['message']['content']
     bot.reply_to(message, phrase)
 
 
