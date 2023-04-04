@@ -5,13 +5,16 @@ from telebot import types
 from pydub import AudioSegment
 from gtts import gTTS
 from io import BytesIO
+import json 
+with open('keys.json') as json_file:
+    keys = json.load(json_file)
 
 
 import os
-#OPENAI_KEY = os.environ.get("OPENAI_KEY")
-OPENAI_KEY="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"
+OPENAI_KEY = keys['openai_key']
+
 openai.api_key=OPENAI_KEY
-API_TOKEN =os.environ.get("TOKEN_SEMSLATE")
+API_TOKEN =keys['token_semslate']
 
 
 bot = telebot.TeleBot(API_TOKEN)
