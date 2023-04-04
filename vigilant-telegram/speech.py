@@ -8,8 +8,8 @@ from io import BytesIO
 
 
 import os
-OPENAI_KEY = os.environ.get("OPENAI_KEY")
-
+#OPENAI_KEY = os.environ.get("OPENAI_KEY")
+OPENAI_KEY="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"
 openai.api_key=OPENAI_KEY
 API_TOKEN =os.environ.get("TOKEN_SEMSLATE")
 
@@ -44,7 +44,7 @@ def voice_processing(message):
             promptt=r.recognize_google(audio_data,language="it-IT")
             print("You have said \n" + promptt)
             prompts="devi solo tradurre in inglese: "+promptt
-            completion=openai.Completion.create(model="gpt-3.5-turbo",messages=[{"role": "user", "content": prompts}])
+            completion=openai.ChatCompletion.create(model="gpt-3.5-turbo",messages=[{"role": "user", "content": prompts}])
             phrase=completion.choices[0]['message']['content']
             tts=gTTS(text=phrase, lang="en")
             fp = BytesIO()
@@ -63,7 +63,7 @@ def voice_processing(message):
 
 @bot.message_handler(func=lambda m: True)
 def echo_all(message):
-    completion=openai.Completion.create(model="gpt-3.5-turbo",messages=[{"role": "user", "content": message.text}])
+    completion=openai.ChatCompletion.create(model="gpt-3.5-turbo",messages=[{"role": "user", "content": message.text}])
     phrase=completion.choices[0]['message']['content']
     bot.reply_to(message, phrase)
 
